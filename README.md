@@ -16,3 +16,13 @@ Add the following to your project's `tiapp.xml`:
       <module platform="android">ro.mihaiblaga.imei</module>
     </modules>
     ...
+
+```javascript
+
+var imeiModule = require('ro.mihaiblaga.imei');
+
+var imei = imeiModule.getImei();
+
+Ti.API.info(imei);
+
+```
