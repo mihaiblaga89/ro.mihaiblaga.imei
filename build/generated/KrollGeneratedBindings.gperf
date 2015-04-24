@@ -1,0 +1,18 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name ImeiBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "ro.mihaiblaga.imei.ImeiModule.h"
+#include "ro.mihaiblaga.imei.ExampleProxy.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+ro.mihaiblaga.imei.ImeiModule, ::ro::mihaiblaga::imei::ImeiModule::bindProxy, ::ro::mihaiblaga::imei::ImeiModule::dispose
+ro.mihaiblaga.imei.ExampleProxy, ::ro::mihaiblaga::imei::imei::ExampleProxy::bindProxy, ::ro::mihaiblaga::imei::imei::ExampleProxy::dispose
+%%

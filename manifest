@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: Android module for getting the device's IMEI
+author: Mihai Blaga
+license: Apache
+copyright: Copyright (c) 2015 by AG Prime
+
+# these should not be edited
+name: imei
+moduleid: ro.mihaiblaga.imei
+guid: 0fcc0e00-3ef6-4879-9899-172c3674fb6f
+platform: android
+minsdk: 3.5.1.GA
