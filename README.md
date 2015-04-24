@@ -1,4 +1,4 @@
-IMEI Module - Android
+# IMEI Module - Android
 
 Titanium native module for getting a device's IMEI
 
