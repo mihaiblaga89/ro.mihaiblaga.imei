@@ -27,6 +27,8 @@ var imei = imeiModule.getImei();
 Ti.API.info(imei);
 ```
 
+**_Note :_** On simulator it returns ```null ```
+
 ## About
 * Me: [Mihai Blaga](http://www.mihaiblaga.ro) 
 * Twitter: [@blaga_mihai](https://twitter.com/blaga_mihai)
