@@ -20,11 +20,18 @@ Add the following to your project's `tiapp.xml`:
 then
 
 ```javascript
-
 var imeiModule = require('ro.mihaiblaga.imei');
 
 var imei = imeiModule.getImei();
 
 Ti.API.info(imei);
-
 ```
+
+## About
+* Me: [Mihai Blaga](http://www.mihaiblaga.ro) 
+* Twitter: [@blaga_mihai](https://twitter.com/blaga_mihai)
+* Work: [AG Prime](http://www.ag-prime.com/)
+
+## License
+Apache License
+Version 2.0
