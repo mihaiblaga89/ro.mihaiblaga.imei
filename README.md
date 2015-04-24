@@ -16,6 +16,8 @@ Add the following to your project's `tiapp.xml`:
       <module platform="android">ro.mihaiblaga.imei</module>
     </modules>
     ...
+    
+then
 
 ```javascript
 
