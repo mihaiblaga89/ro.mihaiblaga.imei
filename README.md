@@ -11,7 +11,6 @@ directory](http://docs.appcelerator.com/titanium/3.0/#!/guide/Using_a_Module-sec
 
 or
 
-### Get it [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/dk.napp.drawer)
 Simply use the [gitTio CLI](http://gitt.io/cli):
 
 `$ gittio install ro.mihaiblaga.imei`
