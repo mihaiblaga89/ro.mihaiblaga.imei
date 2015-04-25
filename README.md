@@ -1,4 +1,4 @@
-# IMEI Module - Android
+# IMEI Module - Android [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/ro.mihaiblaga.imei)
 
 Titanium native module for getting a device's IMEI
 
@@ -8,6 +8,13 @@ First, download a binary release from https://github.com/mihaiblaga89/ro.mihaibl
 
 Then, put the ZIP file in the [Resources
 directory](http://docs.appcelerator.com/titanium/3.0/#!/guide/Using_a_Module-section-30082372_UsingaModule-Installingamoduleforasingleproject).
+
+or
+
+### Get it [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/dk.napp.drawer)
+Simply use the [gitTio CLI](http://gitt.io/cli):
+
+`$ gittio install ro.mihaiblaga.imei`
 
 Add the following to your project's `tiapp.xml`:
 
