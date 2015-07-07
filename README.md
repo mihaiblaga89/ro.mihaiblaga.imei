@@ -33,7 +33,7 @@ var imei = imeiModule.getImei();
 Ti.API.info(imei);
 ```
 
-# isDateAutomatic()
+## isDateAutomatic()
 Returns the status of the automatic date checkbox from settings.
 
 ```javascript
