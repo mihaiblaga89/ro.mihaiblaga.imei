@@ -90,8 +90,9 @@ Handle<FunctionTemplate> ImeiModule::getProxyTemplate()
 	titanium::ProxyFactory::registerProxyPair(javaClass, *proxyTemplate);
 
 	// Method bindings --------------------------------------------------------
-	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "example", ImeiModule::example);
+	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "isDateAutomatic", ImeiModule::isDateAutomatic);
 	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "getImei", ImeiModule::getImei);
+	DEFINE_PROTOTYPE_METHOD(proxyTemplate, "example", ImeiModule::example);
 
 	Local<ObjectTemplate> prototypeTemplate = proxyTemplate->PrototypeTemplate();
 	Local<ObjectTemplate> instanceTemplate = proxyTemplate->InstanceTemplate();
@@ -114,9 +115,9 @@ Handle<FunctionTemplate> ImeiModule::getProxyTemplate()
 }
 
 // Methods --------------------------------------------------------------------
-Handle<Value> ImeiModule::example(const Arguments& args)
+Handle<Value> ImeiModule::isDateAutomatic(const Arguments& args)
 {
-	LOGD(TAG, "example()");
+	LOGD(TAG, "isDateAutomatic()");
 	HandleScope scope;
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
@@ -125,9 +126,61 @@ Handle<Value> ImeiModule::example(const Arguments& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(ImeiModule::javaClass, "example", "()Ljava/lang/String;");
+		methodID = env->GetMethodID(ImeiModule::javaClass, "isDateAutomatic", "()Ljava/lang/Integer;");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'example' with signature '()Ljava/lang/String;'";
+			const char *error = "Couldn't find proxy method 'isDateAutomatic' with signature '()Ljava/lang/Integer;'";
+			LOGE(TAG, error);
+				return titanium::JSException::Error(error);
+		}
+	}
+
+	titanium::Proxy* proxy = titanium::Proxy::unwrap(args.Holder());
+
+	jvalue* jArguments = 0;
+
+	jobject javaProxy = proxy->getJavaObject();
+	jobject jResult = (jobject)env->CallObjectMethodA(javaProxy, methodID, jArguments);
+
+
+
+	if (!JavaObject::useGlobalRefs) {
+		env->DeleteLocalRef(javaProxy);
+	}
+
+
+
+	if (env->ExceptionCheck()) {
+		Handle<Value> jsException = titanium::JSException::fromJavaException();
+		env->ExceptionClear();
+		return jsException;
+	}
+
+	if (jResult == NULL) {
+		return Null();
+	}
+
+	Handle<Value> v8Result = titanium::TypeConverter::javaObjectToJsValue(env, jResult);
+
+	env->DeleteLocalRef(jResult);
+
+
+	return v8Result;
+
+}
+Handle<Value> ImeiModule::getImei(const Arguments& args)
+{
+	LOGD(TAG, "getImei()");
+	HandleScope scope;
+
+	JNIEnv *env = titanium::JNIScope::getEnv();
+	if (!env) {
+		return titanium::JSException::GetJNIEnvironmentError();
+	}
+	static jmethodID methodID = NULL;
+	if (!methodID) {
+		methodID = env->GetMethodID(ImeiModule::javaClass, "getImei", "()Ljava/lang/String;");
+		if (!methodID) {
+			const char *error = "Couldn't find proxy method 'getImei' with signature '()Ljava/lang/String;'";
 			LOGE(TAG, error);
 				return titanium::JSException::Error(error);
 		}
@@ -166,9 +219,9 @@ Handle<Value> ImeiModule::example(const Arguments& args)
 	return v8Result;
 
 }
-Handle<Value> ImeiModule::getImei(const Arguments& args)
+Handle<Value> ImeiModule::example(const Arguments& args)
 {
-	LOGD(TAG, "getImei()");
+	LOGD(TAG, "example()");
 	HandleScope scope;
 
 	JNIEnv *env = titanium::JNIScope::getEnv();
@@ -177,9 +230,9 @@ Handle<Value> ImeiModule::getImei(const Arguments& args)
 	}
 	static jmethodID methodID = NULL;
 	if (!methodID) {
-		methodID = env->GetMethodID(ImeiModule::javaClass, "getImei", "()Ljava/lang/String;");
+		methodID = env->GetMethodID(ImeiModule::javaClass, "example", "()Ljava/lang/String;");
 		if (!methodID) {
-			const char *error = "Couldn't find proxy method 'getImei' with signature '()Ljava/lang/String;'";
+			const char *error = "Couldn't find proxy method 'example' with signature '()Ljava/lang/String;'";
 			LOGE(TAG, error);
 				return titanium::JSException::Error(error);
 		}

@@ -17,6 +17,7 @@ import org.appcelerator.kroll.common.TiConfig;
 import android.app.Activity;
 import android.content.Context;
 import android.telephony.TelephonyManager;
+import android.provider.Settings;
 import android.os.Bundle;
 
 @Kroll.module(name = "Imei", id = "ro.mihaiblaga.imei")
@@ -53,5 +54,15 @@ public class ImeiModule extends KrollModule {
 		String imei = telephonyManager.getDeviceId();
 		
 		return imei;
+	}
+	
+	@Kroll.method
+	public Integer isDateAutomatic() {
+		
+		Context context = TiApplication.getInstance();
+		
+		Integer status = android.provider.Settings.System.getInt(context.getContentResolver(), android.provider.Settings.System.AUTO_TIME, 0);
+
+		return status;
 	}
 }
