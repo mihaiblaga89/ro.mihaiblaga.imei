@@ -37,6 +37,7 @@ Ti.API.info(imei);
 
 ## isDateAutomatic()
 Returns the status of the automatic date checkbox from settings.
+
 **_I know this module is named IMEI, that was it's main purpose. Later I needed the automatic date check as well. When i'll have more time i'll rename the module or separate them_**
 
 
