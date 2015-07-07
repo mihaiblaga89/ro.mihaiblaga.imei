@@ -33,6 +33,8 @@ var imei = imeiModule.getImei();
 Ti.API.info(imei);
 ```
 
+**_Note :_** On simulator it returns ```null ```
+
 ## isDateAutomatic()
 Returns the status of the automatic date checkbox from settings.
 
@@ -41,8 +43,6 @@ var imeiModule = require('ro.mihaiblaga.imei');
 
 Ti.API.info(imeiModule.isDateAutomatic());
 ```
-
-**_Note :_** On simulator it returns ```null ```
 
 ## About
 * Me: [Mihai Blaga](http://www.mihaiblaga.ro) 
